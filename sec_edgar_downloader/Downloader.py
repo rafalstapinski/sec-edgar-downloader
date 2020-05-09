@@ -52,6 +52,7 @@ class Downloader:
         after_date=None,
         before_date=None,
         include_amends=False,
+        return_links_only=False
     ):
         """Downloads filing documents and saves them to disk.
 
@@ -152,6 +153,9 @@ class Downloader:
             before_date,
             include_amends,
         )
+
+        if return_links_only:
+            return filings_to_fetch
 
         download_filings(
             self.download_folder, ticker_or_cik, filing_type, filings_to_fetch
